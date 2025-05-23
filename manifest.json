@@ -8,7 +8,9 @@
     "storage",
     "tabs",
     "downloads",
-    "webNavigation"
+    "webNavigation",
+    "scripting"
+
   ],
   "host_permissions": [
     "<all_urls>"

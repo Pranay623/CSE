@@ -8,6 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
   chrome.storage.local.get(null, (allCookies) => {
     const domains = Object.keys(allCookies);
 
+    Object.keys(allCookies).forEach(key => {
+  const option = document.createElement('option');
+  option.value = key;
+  option.textContent = key;
+  domainSelect.appendChild(option);
+});
+
+domainSelect.addEventListener('change', () => {
+  const key = domainSelect.value;
+  display.textContent = JSON.stringify(allCookies[key], null, 2);
+});
+
     if (domains.length === 0) {
       display.textContent = "No cookies saved yet. Visit a site and refresh.";
       return;
